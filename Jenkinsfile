@@ -5,9 +5,9 @@ pipeline{
 		jdk 'jdk1.8.0_211'
 	}
 	stages{
-		stage('Compilation'){	
+		stage('Build'){	
 			steps{
-			bat 'mvn compiler:compile'
+			bat  'mvn install'
 			}
 			post {
 				always{
