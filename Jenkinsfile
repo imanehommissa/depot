@@ -9,10 +9,14 @@ pipeline{
 			steps{
 			bat 'mvn compiler:compile'
 			}
-			
+			post {
+				always{
+					junit 'target/surefire-reports/*.xml'
+				}
+			}
 			
 		}
-stage('Test'){
+                stage('Test'){
 			steps{
 			bat 'mvn test'
 			}
