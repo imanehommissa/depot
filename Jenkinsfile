@@ -5,15 +5,11 @@ pipeline{
 		jdk 'jdk1.8.0_211'
 	}
 	stages{
-		stage('Build'){	
+		stage('Compilation'){	
 			steps{
-			bat 'mvn install'
+			bat 'mvn compiler:compile'
 			}
-			post {
-				success{
-					junit 'target/surefire-reports/**/*.xml'
-				}
-			}
+			
 			
 		}
 stage('Test'){
